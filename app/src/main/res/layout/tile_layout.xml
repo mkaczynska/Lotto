@@ -7,21 +7,9 @@
         android:id="@+id/tileTextViewId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cos tam"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/orange"
         android:layout_gravity="center"
         />
-    <!--<TextView-->
-        <!--android:id="@+id/tileTextViewId"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Cos tam"-->
-        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-        <!--android:textColor="@color/orange"-->
-        <!--android:layout_gravity="center"-->
-        <!-->-->
-    <!--</TextView>-->
 </LinearLayout>
 
-<!--android:layout_marginTop="10dp"-->

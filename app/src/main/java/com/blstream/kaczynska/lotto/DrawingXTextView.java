@@ -25,18 +25,21 @@ public class DrawingXTextView extends TextView {
         super(context, attrs, defStyleAttr);
     }
 
-
-
-
     @Override
     protected void onDraw(Canvas canvas) {
 
         super.onDraw(canvas);
         if (startToDraw) {
             paint.setColor(Color.BLUE);
-            paint.setTextSize(100);
-            canvas.drawText(tileXText, (super.getWidth()- paint.measureText(tileXText))/2, super.getBaseline(), paint);
+            paint.setTextSize(super.getWidth());
+            setCanvasSize(canvas);
+            canvas.drawText(tileXText, (super.getWidth() - paint.measureText(tileXText)) / 2, (super.getHeight() + paint.measureText(tileXText)) / 2, paint);
         }
+    }
+
+    private void setCanvasSize(Canvas canvas) {
+        setWidth(canvas.getWidth());
+        setHeight(canvas.getHeight());
     }
 
     public void drawX() {
@@ -44,4 +47,18 @@ public class DrawingXTextView extends TextView {
         invalidate();
     }
 
+    @Override
+    protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec)
+    {
+        final int width = getDefaultSize(getSuggestedMinimumWidth(),widthMeasureSpec);
+        setMeasuredDimension(width, width);
+    }
+
+    @Override
+    protected void onSizeChanged(final int w, final int h, final int oldw, final int oldh)
+    {
+        super.onSizeChanged(w, w, oldw, oldh);
+    }
 }
+
+

@@ -1,6 +1,7 @@
 package com.blstream.kaczynska.lotto;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final static int BOARDSIZE = 49;
+    private final static int BOARDSIZE = 112;
     private final static int ALLOWEDCLICKNO = 6;
     public static int clickCounter = 1;
     ArrayList<Integer> clickedTileList;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     RelativeLayout mainLayout;
     private static boolean colorsChanged = false;
-    ArrayList<String> tileNumbersList;
+
     TextViewAdapter textViewAdapter;
 
     @Override
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = this;
-        tileNumbersList = new ArrayList<>();
+        ArrayList<String> tileNumbersList = new ArrayList<>();
         clickedTileList = new ArrayList<>();
         for (int number = 1; number <= BOARDSIZE; number++) {
             tileNumbersList.add(Integer.toString(number));
@@ -40,9 +41,8 @@ public class MainActivity extends AppCompatActivity {
         mainLayout = (RelativeLayout) findViewById(R.id.root);
         textViewAdapter = new TextViewAdapter(this, tileNumbersList);
         boardGridView.setAdapter(textViewAdapter);
+
         setBoardColor();
-
-
         boardGridView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void setBoardColor() {
-
         int currentBoardColor;
         if(colorsChanged) {
             currentBoardColor = ContextCompat.getColor(context, R.color.green);
@@ -86,5 +85,4 @@ public class MainActivity extends AppCompatActivity {
         }
         clickCounter++;
     }
-
 }

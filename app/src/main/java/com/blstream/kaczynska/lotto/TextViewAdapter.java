@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class TextViewAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<String> textViewValues = null;
-    View gridView;
+
 
     public TextViewAdapter(Context context, ArrayList<String> textViewValues) {
         this.context = context;
@@ -21,37 +21,27 @@ public class TextViewAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
+        View gridView;
+
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 
 
         if (convertView == null) {
-
-            gridView = new View(context);
-
             // get layout from mobile.xml
             gridView = inflater.inflate(R.layout.tile_layout, null);
 
-            // set value into textview
-            DrawingXTextView drawingXTextView = (DrawingXTextView)
-                    gridView.findViewById(R.id.tileTextViewId);
-            drawingXTextView.setText(textViewValues.get(position));
-
-//            TextView textView = (TextView) gridView
-//                    .findViewById(R.id.tileTextViewId);
-//            textView.setText(textViewValues.get(position));
         } else {
             gridView = (View) convertView;
         }
-
+        // set value into textview
+        DrawingXTextView drawingXTextView = (DrawingXTextView)
+                gridView.findViewById(R.id.tileTextViewId);
+        drawingXTextView.setText(textViewValues.get(position));
         return gridView;
     }
 
-
-    public ArrayList<String> getItems() {
-        return textViewValues;
-    }
 
     @Override
     public int getCount() {

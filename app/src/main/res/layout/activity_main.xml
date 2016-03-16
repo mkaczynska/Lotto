@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,15 +7,17 @@
 
 <GridView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/gridViewId"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:columnWidth="50dp"
+    android:columnWidth="100dp"
     android:numColumns="7"
     android:stretchMode="columnWidth"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:background="@color/orange"
     android:verticalSpacing="2dp"
     android:horizontalSpacing="2dp"
-    android:layout_margin="5dp"/>
-
+    android:layout_margin="5dp"
+    android:clipChildren="true" android:alwaysDrawnWithCache="true"
+    android:scrollingCache="true" android:smoothScrollbar="true"
+    />
 </RelativeLayout>
